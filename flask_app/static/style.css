@@ -1,0 +1,21 @@
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* Two columns */
+    grid-gap: 10px; /* Gap between images */
+}
+
+.image-grid img {
+    width: 100%; /* Make images fill their container */
+}
+
+.search-container {
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid #050505
+    padding: 20px;
+    
+}
+
+.search-input{
+    width: 100%;
+}

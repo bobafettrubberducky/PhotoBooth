@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+{% with success_messages = get_flashed_messages(category_filter = ["success"]) %}
+    {% for msg in success_messages%}
+        <div class="alert alert-success">{{msg}}</div>
+    {% endfor %}
+{% endwith %}
+
+<div class="row">
+    <div class="col">
+        <h1>Upload Profile Pictures</h1>
+
+        <form action="/set-profile-pic" method="POST" enctype="multipart/form-data">
+            <label for="file">File Upload:</label>
+            <input type="file" name="my_file" class="form-control">
+            <input type="submit" class="btn btn-primary">
+        </form>
+    </div>
+
+    <div class="col">
+        {% if user.profile_pic %}
+            <h3>Username: {{user.user_name}} profile pic</h3>
+            <img src="/uploads/{{ user.profile_pic }}" alt="" class="img-thumbnail">
+            <form action="/delete-profile-pic" method="post">
+                <input type="submit" class="btn btn-danger" value="Delete Profile Picture">
+            </form>
+        {% else %}
+            <h1>This user doesn't have a profile pic</h1>
+        {% endif %}
+    </div>
+
+</div>
+
+
+
+{% endblock %}

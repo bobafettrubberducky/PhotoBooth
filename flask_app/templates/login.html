@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+
+<!-- Login Page -->
+{% block content %}
+<form action="/login" method="post">
+
+    <!--? *********** Register Error *************-->
+    {% with errors = get_flashed_messages() %}
+        {% if errors %}
+            <div class="alert alert-danger" role="alert">
+                    {% for errors_msg in errors %}
+                        <p>{{errors_msg}}</p>
+                    {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <h1>Login</h1>
+
+    <div class="mb-3">
+        <label for="email">Email:</label>
+        <input type="text" name="email" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="password">Password:</label>
+        <input type="password" name="password" class="form-control">
+    </div>
+    <div class="mb-3">
+        <a href="/register">Create User</a>
+        <button type="submit" class="btn btn-primary">LOG IN</button>
+    </div>
+</form>
+{% endblock %}

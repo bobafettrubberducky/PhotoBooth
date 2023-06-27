@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="search-container">
+    <label for="search">Search</label>
+    <input type="text">
+</div>
+
+<div class="gallery">
+    <div class="row row-col-1 row-col-md-2 row-cols-lg-3 g-3">
+        {% for img in images %}
+            <div class="col">
+                <div class="card h-100">
+                    <img src="/uploads/{{ img.file_name }}" alt="images" class="card-img-top">
+                    <div class="card-body">
+                        <div class="card-title">Tile: {{ img.title }}</div>
+                        <div class="card-text">Description: {{ img.description }}</div>
+                        <div class="card-text">Extension Type: {{ img.extension}}</div>
+                        <div class="card-text">Created At: {{ img.created_at }}</div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div> 
+</div>
+
+
+
+{% endblock %}
