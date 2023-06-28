@@ -8,14 +8,24 @@
     width: 100%; /* Make images fill their container */
 }
 
-.search-container {
-    max-width: 800px;
-    margin: 0 auto;
+/* view.html */
+
+.container{
+    max-width: 1000px;
+    margin: 10px auto;
     border: 1px solid #050505
     padding: 20px;
-    
 }
 
 .search-input{
     width: 100%;
+    margin-bottom: 10px;
+    background-image: url('/static/search-icon.png');
+    background-repeat: no-repeat;
+    background-position: 0px 50%;
+    padding: 10px 40px;
+}
+
+.dropdown-menu{
+    background: #f1570a;
 }
