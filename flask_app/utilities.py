@@ -5,7 +5,6 @@ from flask_app.models.user import User
 from flask_app.models.file import File
 
 
-
 import os
 import uuid
 
@@ -80,3 +79,12 @@ def save_gallery_image (file, user_id, title, description):
 
 
     return True
+
+#! Delete file from the instance/uploads path when photo deleted in /gallery
+def delete_image_file(file_name):
+    file_path = os.path.join(app.config["UPLOAD_DIR"], file_name)
+    if os.path.exists(file_path):
+        os.remove(file_path)
+        return True
+    return False
+

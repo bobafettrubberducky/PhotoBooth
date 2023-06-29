@@ -1,4 +1,6 @@
+
 from flask_app.config.mysqlconnection import connectToMySQL
+
 
 class File:
     DB = "gallery"
@@ -31,3 +33,22 @@ class File:
         for file in results:
             files.append(cls(file))
         return files
+    
+    @classmethod
+    def destroy_file(cls, id):
+        query = "DELETE FROM files WHERE id = %(id)s;"
+        data = {"id":id}
+        return connectToMySQL(cls.DB).query_db(query,data)
+    
+    @classmethod
+    def get_by_id(cls, id):
+        query = "SELECT * FROM files WHERE id = %(id)s;"
+        data = {"id":id}
+        results = connectToMySQL(cls.DB).query_db(query,data)
+
+        if len(results) < 1:
+            return False
+        return cls(results[0])
+    
+    
+

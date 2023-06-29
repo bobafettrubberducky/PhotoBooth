@@ -1,6 +1,6 @@
 from flask_app import app
 
-# import flask_app.controllers and registered in your Flask application
+# import flask_app.controllers and registered in  Flask application
 import flask_app.controllers.user_controller
 import flask_app.controllers.upload_controller
 import flask_app.controllers.gallery_controller

@@ -50,9 +50,7 @@ def login():
 @app.route('/login', methods=['POST'])
 def login_verify():
 
-    data = {
-        "email":request.form["email"]
-        }
+    data = { "email":request.form["email"] }
     
     user = User.get_by_email(data)
 

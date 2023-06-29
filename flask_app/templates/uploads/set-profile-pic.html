@@ -10,7 +10,7 @@
 {% endwith %}
 
 <div class="row">
-    <div class="col">
+    <div class="col bg-body-secondary">
         <h1>Upload Profile Pictures</h1>
 
         <form action="/set-profile-pic" method="POST" enctype="multipart/form-data">
@@ -20,7 +20,7 @@
         </form>
     </div>
 
-    <div class="col">
+    <div class="col bg-primary text-white">
         {% if user.profile_pic %}
             <h1>Profile Picture</h1>
             <img src="/uploads/{{ user.profile_pic }}" alt="" class="img-thumbnail">
@@ -31,7 +31,7 @@
                 <input type="submit" class="btn btn-danger" value="Delete Profile Picture">
             </form>
         {% else %}
-            <h1>This user doesn't have a profile pic</h1>
+            <h1>NO PROFILE PIC</h1>
         {% endif %}
     </div>
 
