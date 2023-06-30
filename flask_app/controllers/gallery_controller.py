@@ -3,6 +3,7 @@ from flask import request, render_template, redirect, flash, session, send_from_
 from flask_app import app
 
 from flask_app.models.file import File
+from flask_app.models.user import User
 
 from flask_app.utilities import delete_image_file
 
@@ -15,15 +16,16 @@ def gallery_view():
         return redirect ('/logout')
     
     user_id = session["user_id"]
-    images = File.get_all(user_id)
-    return render_template("gallery/view.html", images=images)
+    user = User.get_by_id({"id": user_id}) #! get user by id for profile image from User class
+    images = File.get_all(user_id) #! get all images for user_id from File class
+    return render_template("gallery/view.html", user=user, images=images)
 
 
 #! DELETE FILE in gallery 
 @app.route("/delete/<int:id>", methods=["POST"])
 def delete_file(id):
 
-    #& STEP 0A - check if user_id in session 
+    # check if user_id in session 
     if 'user_id' not in session:
         return redirect ('/logout')
     
@@ -41,5 +43,5 @@ def delete_file(id):
     flash("File deleted successfully!", "success")
     return redirect("/gallery")
 
-    
+
 

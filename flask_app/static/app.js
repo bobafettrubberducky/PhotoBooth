@@ -5,12 +5,13 @@ function handleSearch(event)
     const searchValue = event.target.value.toLowerCase(); // Read the search input value and convert to lowercase
     const galleryCards = document.querySelectorAll('.gallery .card'); // Select all of the cards in html
 
-    galleryCards.forEach(cardSelection) // Loop through each card
+    galleryCards.forEach(cardSelection); // Loop through each card
 
     function cardSelection(card) 
     {       // Select the card title, file name, description, extension, and created at date
             const title = card.querySelector('.card-title').textContent.toLowerCase();
-            const fileName = card.querySelector('.file-name').textContent.toLowerCase();
+            const fileName = card.querySelector('.card-img-top').alt.toLowerCase();
+            // retrieve the alt attribute of the image instead of a non-existent .file-name element
             const description = card.querySelector('.description').textContent.toLowerCase();
             const extension = card.querySelector('.extension').textContent.toLowerCase();
             const createdAt = card.querySelector('.created-at').textContent.toLowerCase();

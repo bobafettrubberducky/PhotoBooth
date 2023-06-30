@@ -10,7 +10,7 @@ from flask_app.utilities import save_profile_pic, delete_profile_pic,save_galler
 @app.route('/uploads/<filename>') #/uploads/filename.png with filename = "filename.png"
 def serve_uploads(filename):
 
-    #& STEP 0A - check if user_id in session 
+    # STEP 0A - check if user_id in session 
     if 'user_id' not in session:
         return redirect ('/logout')
     
@@ -20,7 +20,7 @@ def serve_uploads(filename):
 @app.route('/set-profile-pic', methods=['GET'])
 def show_profile_pic():
 
-    #& STEP 0A - check if user_id in session 
+    # STEP 0A - check if user_id in session 
     if 'user_id' not in session:
         return redirect ('/logout')
     
@@ -30,7 +30,7 @@ def show_profile_pic():
 @app.route('/set-profile-pic', methods=['POST'])
 def show_profile_uploads():
 
-    #& STEP 0A - check if user_id in session 
+    # STEP 0A - check if user_id in session 
     if 'user_id' not in session:
         return redirect ('/logout')
     
@@ -42,7 +42,7 @@ def show_profile_uploads():
 @app.route('/delete-profile-pic', methods=['POST'])
 def delete_profile_uploads():
     
-    #& STEP 0A - check if user_id in session 
+    # STEP 0A - check if user_id in session 
     if 'user_id' not in session:
         return redirect ('/logout')
     
@@ -55,7 +55,7 @@ def delete_profile_uploads():
 @app.route('/uploads', methods=['GET'])
 def upload_image():
 
-    #& STEP 0A - check if user_id in session 
+    # STEP 0A - check if user_id in session 
     if 'user_id' not in session:
         return redirect ('/logout')
     
@@ -64,7 +64,7 @@ def upload_image():
 @app.route('/uploads/gallery', methods=['POST'])
 def store_image():
 
-    #& STEP 0A - check if user_id in session 
+    # STEP 0A - check if user_id in session 
     if 'user_id' not in session:
         return redirect ('/logout')
 
